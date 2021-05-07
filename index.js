@@ -68,7 +68,6 @@ app.get("/", async (req, res) => {
       }
       numTracks -= playlistRes.length;
     }
-    break;
   }
 
   res.render("index", {
