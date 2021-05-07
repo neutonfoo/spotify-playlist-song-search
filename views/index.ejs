@@ -16,10 +16,10 @@
     <div class="col-12 my-2">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= playlistName %></h5>
+          <h5 class="card-title">[P] : <%= playlistName %></h5>
           <ul class="list-group list-group-flush">
             <% for (const track of tracks) { %>
-              <li class="list-group-item track" data-tags="<%= track.name %> <%= track.artist %> <%= track.album %>"><%= track.name %> by <strong><%= track.artist %></strong> - <%= track.album %></li>
+              <li class="list-group-item track" data-tags="<%= track.name.toLowerCase() %> <%= track.artist.toLowerCase() %> <%= track.album.toLowerCase() %>"><%= track.name %> by <strong><%= track.artist %></strong> - <%= track.album %></li>
             <% } %>
           </ul>        
         </div>
@@ -32,8 +32,6 @@
 <script>
   $('#track-search').on('keyup', function () {
 	const query = $(this).val().toLowerCase();
-
-  // $("#playlists").data("masonry", '')
 
 	$('.track').each(function () {
 		if ($(this).data('tags').includes(query)) {
